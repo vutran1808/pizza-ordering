@@ -1,0 +1,87 @@
+.home {
+    background-image: url("../images/bg-attachment.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: bottom;
+
+    .hero {
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        background-image: url("../images/hero-img.jpg");
+        background-size: cover;
+        background-position: center;
+    
+        &__inner {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    
+        &__btn {
+            margin-top: 40px;
+        }
+    }
+    
+    .enjoy {
+        &__inner {
+            background-color: #fff;
+            padding: 120px 15px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+    
+        &__media {
+            width: 50%;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            &--img {
+                display: block;
+                max-width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    
+        &__content {
+            width: 50%;
+        }
+    }
+    
+    .description {
+        &__inner {
+            background-color: #e62d2a;
+            padding: 80px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+        }
+    
+        &__content {
+            text-align: center;
+        }
+    
+        &__btn {
+            margin-top: 20px;
+        }
+    }
+    
+    .transparent {
+    
+        &__inner {
+            padding: 221px 0;
+            background-color: transparent;
+            display: flex;
+            justify-content: center;
+        }
+    
+        &__heading {
+            max-width: initial;
+        }
+    }
+}
+

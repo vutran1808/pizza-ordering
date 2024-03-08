@@ -1,0 +1,123 @@
+.header {
+    &__inner {
+        display: flex;
+        align-items: center;
+        padding: 30px;
+    }
+
+}
+
+.logo {
+    width: 160px;
+
+    &-img {
+        max-width: 100%;
+        object-fit: contain;
+    }
+}
+
+.navbar {
+    position: relative;
+    margin-left: auto;
+    
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        margin-right: 10px;
+    }
+
+    &__item:last-child &__link{
+        color: #fff;
+        background-color: #e62d2a;
+        transition: background-color .3s;
+        
+        &:hover {
+            color: #111;
+            background-color: rgba(127, 127, 127, 0.1);
+        }
+    }
+
+    &__link {
+        padding: 14px 16px;
+        color: #111;
+        border-radius: 99px;
+
+        &:hover {
+            background-color: rgba(127, 127, 127, 0.1);
+        }
+    }
+
+    &__line {
+        position: absolute;
+        top: 120%;
+        height: 3px;
+        background-color: #e62d2a;
+    }
+
+}
+
+.profile {
+    position: relative;
+    border-radius: 50%;
+    border: 1px solid transparent;
+    transition: border-color .3s;
+    cursor: pointer;
+
+    &-wrapper{
+        padding: 15px;
+    }
+    
+    &:hover {
+        background-color: #eee;
+        border-color:#428bca;
+    }
+
+    &-icon {
+        filter: brightness(0) saturate(100%) invert(33%) sepia(85%) saturate(6644%) hue-rotate(353deg) brightness(106%) contrast(81%);
+    }
+
+    &.hide .dropdown {
+        display: none;
+    }
+
+    &.show {
+        background-color: #eee;
+        border-color:#428bca;
+        .dropdown {
+            display: block;
+        }
+    }
+}
+
+.dropdown {
+    position: absolute;
+    background-color: #fff;
+    z-index: 99;
+    right: 0;
+    top: 105%;
+    margin: 4px 0;
+    padding: 5px 0;
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    min-width: 160px;
+    font-size: 1.4rem;
+    color: #333;
+    cursor: pointer;
+
+    &-list {
+        margin: 0;
+    }
+
+    &__item {
+        padding: 8px 5px;
+        width: 100%;
+        white-space: nowrap;
+        transition: background-color .2s;
+        
+        &:hover {
+            background-color: #f5f5f5;
+        }
+    }
+}
+

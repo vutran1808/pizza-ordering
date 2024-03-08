@@ -1,0 +1,98 @@
+*, ::before, ::after {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+
+* {
+    user-select: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+input, 
+button {
+    border: none;
+    padding: 0;
+    outline: none;
+    color: inherit;
+    cursor: pointer;
+    background: transparent;
+}
+
+button, select, textarea, label , option, a, img {
+    font-family: inherit;
+    font-size: inherit;
+    -webkit-tap-highlight-color: transparent;
+}
+
+textarea {
+    outline: none;
+    border: none;
+}
+
+.container {
+    width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section {
+
+    &__heading--main,
+    &__desc--main {
+        font-family: "Sora";
+        max-width: 547px;
+        line-height: 1.1;
+
+        &.white {
+            color: #fff;
+        }
+    }
+
+    &__heading--main {
+        font-size: 7.6rem;
+        color: rgb(230, 45, 42);
+    }
+    
+    &__desc--main {
+        margin-top: 50px;
+        font-size: 3.2rem;
+    }
+
+
+    &__heading,
+    &__desc {
+        line-height: 1.1;
+        max-width: 527px;
+        text-align: center;
+
+        &.white {
+            color: #fff;
+        }
+    }
+
+    &__heading {
+        color: #111;
+        font-family: 'Sora';
+        font-size: 5.7rem;
+    }
+
+    &__desc {
+        color: #333;
+        font-weight: 300;
+        margin-top: 70px;
+        font-size: 1.8rem;
+    }
+}
