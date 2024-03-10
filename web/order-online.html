@@ -73,7 +73,7 @@
                         <!-- Food List -->
                         <div class="food__menu">
                             <!-- Food list 1 -->
-                            <div class="food__menu--item">
+                            <div id="appetizers" class="food__menu--item">
                                 <h3 class="food__menu--title">Appetizers</h3>
                                 <ul class="food__list">
                                     <!-- Item 1 -->
@@ -158,7 +158,7 @@
                                 </ul>
                             </div>
                             <!-- Food list 2 -->
-                            <div class="food__menu--item">
+                            <div id="maincourse" class="food__menu--item">
                                 <h3 class="food__menu--title">Main courses</h3>
                                 <ul class="food__list">
                                     <!-- Item 1 -->
@@ -255,9 +255,9 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- Food list 2 -->
-                            <div class="food__menu--item">
-                                <h3 class="food__menu--title">Main courses</h3>
+                            <!-- Food list 3 -->
+                            <div id="pizza" class="food__menu--item">
+                                <h3 class="food__menu--title">Pizza</h3>
                                 <ul class="food__list">
                                     <!-- Item 1 -->
                                     <li class="food__item">
@@ -357,9 +357,107 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!-- Food list 2 -->
-                            <div class="food__menu--item">
-                                <h3 class="food__menu--title">Main courses</h3>
+                            <!-- Food list 4 -->
+                            <div id="desserts" class="food__menu--item">
+                                <h3 class="food__menu--title">Desserts</h3>
+                                <ul class="food__list">
+                                    <!-- Item 1 -->
+                                    <li class="food__item">
+                                        <article class="food__card">
+                                            <!-- Image -->
+                                            <div class="food__wrapper">
+                                                <img src="./assets/images/main-courses-1.webp" alt="Loading" class="food__wrapper--img">
+                                            </div>
+                                            <!-- Content -->
+                                            <div class="food__content">
+                                                <div class="food__content--top">
+                                                    <h4 class="food__title">Spaghetti Carbonara</h4>
+                                                    <ul class="food__category--list">
+                                                        <li class="food__category--item">
+                                                            <i class="fa-solid fa-medal"></i>
+                                                            Bestseller
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="food__content--bottom">
+                                                    <span class="food__price">$9.00</span>
+                                                    <button class="btn add-to-card__btn">Order</button>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </li>
+                                    <!-- Item 2 -->
+                                    <li class="food__item">
+                                        <article class="food__card">
+                                            <!-- Image -->
+                                            <div class="food__wrapper">
+                                                <img src="./assets/images/main-courses-2.webp" alt="Loading" class="food__wrapper--img">
+                                            </div>
+                                            <!-- Content -->
+                                            <div class="food__content">
+                                                <div class="food__content--top">
+                                                    <h4 class="food__title">Risotto with wild mushrooms</h4>
+                                                </div>
+                                                <div class="food__content--bottom">
+                                                    <span class="food__price">$12.00</span>
+                                                    <button class="btn add-to-card__btn">Order</button>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </li>
+                                    <!-- Item 3 -->
+                                    <li class="food__item">
+                                        <article class="food__card">
+                                            <!-- Image -->
+                                            <div class="food__wrapper">
+                                                <img src="./assets/images/main-courses-3.webp" alt="Loading" class="food__wrapper--img">
+                                            </div>
+                                            <!-- Content -->
+                                            <div class="food__content">
+                                                <div class="food__content--top">
+                                                    <h4 class="food__title">Gnocchi with tomato sauce and mozzarella</h4>
+                                                    <ul class="food__category--list">
+                                                        <li class="food__category--item">
+                                                            <i class="fa-solid fa-star"></i>
+                                                            New
+                                                        </li>
+                                                        <li class="food__category--item">
+                                                            <i class="fa-solid fa-leaf"></i>
+                                                            Vege
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="food__content--bottom">
+                                                    <span class="food__price">$11.00</span>
+                                                    <button class="btn add-to-card__btn">Order</button>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </li>
+                                    <!-- Item 4 -->
+                                    <li class="food__item">
+                                        <article class="food__card">
+                                            <!-- Image -->
+                                            <div class="food__wrapper">
+                                                <img src="./assets/images/main-courses-4.webp" alt="Loading" class="food__wrapper--img">
+                                            </div>
+                                            <!-- Content -->
+                                            <div class="food__content">
+                                                <div class="food__content--top">
+                                                    <h4 class="food__title">Tortellini with ricotta and spinach</h4>
+                                                </div>
+                                                <div class="food__content--bottom">
+                                                    <span class="food__price">$14.00</span>
+                                                    <button class="btn add-to-card__btn">Order</button>
+                                                </div>
+                                            </div>
+                                        </article>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Food list 5 -->
+                            <div id="drinks" class="food__menu--item">
+                                <h3 class="food__menu--title">Drinks</h3>
                                 <ul class="food__list">
                                     <!-- Item 1 -->
                                     <li class="food__item">
@@ -461,11 +559,11 @@
                         <article class="order-cart">
                             <span class="order-cart__title">Your order</span>
                             <div class="order-cart__content">
-                                <!-- <div class="order-cart__wrapper">
+                                <div class="order-cart__wrapper">
                                     <img src="./assets/images/cart.png" alt="Loading" class="order-cart__icon">
                                 </div>
-                                <p class="order-cart__text">Cart is empty. Add menu items.</p> -->
-                                <ul class="order__detail">
+                                <p class="order-cart__text">Cart is empty. Add menu items.</p>
+                                <!-- <ul class="order__detail">
                                     <li class="order__detail--item">
                                         <div class="order__desc">
                                             <p class="order__food--title">1 x Bruschetta with tomatoes, garlic, and basil</p>
@@ -482,9 +580,9 @@
                                 <div class="order__cart--row">
                                     <span class="order__cart--title">TOTAL</span>
                                     <span class="order__cart--price">$0.00</span>
-                                </div>
+                                </div> -->
                             </div>
-                            <a href="checkout.html" class="btn order-cart__btn">Go to checkout</a>
+                            <a href="check-out.html" class="btn order-cart__btn">Go to checkout</a>
                         </article>
                     </div>
                 </div>

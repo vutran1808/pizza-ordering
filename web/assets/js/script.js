@@ -98,8 +98,6 @@ function handleShowFormModal() {
     const dropDownItems = $$('.dropdown__item');
     const closeBtn = $('.form-close-btn');
 
-    
-
     [...dropDownItems].forEach(item => {
         const targetModal = item.getAttribute('modal');
         if(!targetModal) return;
@@ -123,4 +121,50 @@ window.addEventListener('form-loaded', () => {
         })
     });
 })
+
+window.addEventListener('template-loaded', activeMenuNavbar);
+window.addEventListener('scroll', debounce(activeMenuList));
+
+function debounce(func, timeout = 300) {
+    let timers;
+    return (...args) => {
+        clearTimeout(timers);
+        timers = setTimeout(() => { func() }, timeout);
+    };
+}
+
+function activeMenuNavbar(target) {
+    const currentTarget = '#' + target;
+    const categoryItems = $$('.category__link');
+
+    categoryItems.forEach(item => {
+        item.classList.remove('active');
+        if(item.getAttribute('href') === currentTarget){
+            item.classList.add('active');
+        }
+    })
+}
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+function activeMenuList() {
+    const foodMenuItems = $$('.food__menu--item');
+
+    foodMenuItems.forEach(item => {
+        if(isInViewport(item)) {
+            activeMenuNavbar(item.getAttribute('id'));
+        }
+    })
+    
+}
+
+
 
