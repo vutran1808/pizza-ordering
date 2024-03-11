@@ -299,7 +299,7 @@ textarea {
 }
 
 .form-modal {
-  width: 400px;
+  min-width: 400px;
   background-color: #fff;
   padding: 30px;
   transform: translateY(-80%);
@@ -786,7 +786,7 @@ textarea {
 }
 .order .food__content--bottom {
   display: flex;
-  align-items: cemh1 nter;
+  align-items: center;
   justify-content: flex-end;
   gap: 16px;
 }
