@@ -4,6 +4,7 @@
  */
 package controller;
 
+import entity.UserInfo;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -28,15 +29,20 @@ public class LoginController extends HttpServlet {
         String username = req.getParameter("email");
         String password = req.getParameter("password");
         HttpSession session = req.getSession();
-        if (UserRepository.getUserbyAccount(username, password)) {
+        if ((username.equals("admin")) && (password.equals("admin123"))) {
+            resp.sendRedirect("admin.jsp");
+        }
+        UserInfo userInfo = UserRepository.getUserbyAccount(username, password);
+        if (userInfo != null) {
             session.setAttribute("isSigned", true);
-            session.setAttribute("username", username);
+            session.setAttribute("user_id", userInfo.getUser().getUser_id());
             req.getRequestDispatcher("index.jsp").forward(req, resp);
         } else {
             session.setAttribute("isSigned", false);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher(req.getContextPath());
             requestDispatcher.include(req, resp);
         }
+
     }
 
 }

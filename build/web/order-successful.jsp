@@ -74,7 +74,7 @@
                                 <p class="confirmation__text">Thank you so much for your order</p>
                             </div>
                         </div>
-                        <a href="index.html" class="order-successful__btn btn">Back to main menu</a>
+                        <a href="index.jsp" class="order-successful__btn btn">Back to main menu</a>
                         </div>
                 </article>
             </div>

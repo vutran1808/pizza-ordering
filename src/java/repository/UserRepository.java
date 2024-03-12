@@ -5,6 +5,7 @@
 package repository;
 
 import config.SQLConnection;
+import entity.User;
 import entity.UserInfo;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,17 +18,28 @@ import java.sql.SQLException;
  */
 public class UserRepository {
 
-    public boolean getUserbyAccount(String username, String password) {
+    public UserInfo getUserbyAccount(String username, String password) {
         Connection connection = SQLConnection.getConnection();
-        boolean isExisted = false;
-
+        User user = new User();
+        UserInfo userInfo = new UserInfo();
         try {
-            String query = "select * from users where username = ? and password = ? ";
+            String query = "select * from users u inner join user_info i on u.user_id = i.user_id where username = ? and password = ? ";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, username);
             preparedStatement.setString(2, password);
             ResultSet rsSet = preparedStatement.executeQuery();
-            isExisted = rsSet.next();
+            while (rsSet.next()) {
+
+                user.setUser_id(rsSet.getInt("user_id"));
+                user.setUsername(rsSet.getString("username"));
+                user.setPassword(rsSet.getString("password"));
+                userInfo.setFirstname(rsSet.getString("firstname"));
+                userInfo.setLastname(rsSet.getString("lastname"));
+                userInfo.setCity(rsSet.getString("city"));
+                userInfo.setStreet(rsSet.getString("street"));
+                userInfo.setPhone(rsSet.getString("phone"));
+                userInfo.setUser(user);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -39,7 +51,7 @@ public class UserRepository {
                 e.printStackTrace();
             }
         }
-        return isExisted;
+        return userInfo;
     }
 
     public boolean createUser(String username, String password) {
@@ -66,22 +78,19 @@ public class UserRepository {
         return isSuccessful > 0;
     }
 
-    public UserInfo getUserByUsername(String username) {
+    public boolean updateUserInfo(UserInfo userInfo) {
         Connection connection = SQLConnection.getConnection();
-        UserInfo userInfo = new UserInfo();
+        int isSuccessful = 0;
 
         try {
-            String query = "select * from users u inner join user_info i on u.user_id = i.user_id where username = ?";
+            String query = "update user_info set firstname = ? , lastname = ? , city = ?, street = ?, phone = ? where user_id = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, username);
-            ResultSet rs = preparedStatement.executeQuery();
-            while (rs.next()) {
-                userInfo.setFirstname(rs.getString("firstname"));
-                userInfo.setLastname(rs.getString("lastname"));
-                userInfo.setCity(rs.getString("city"));
-                userInfo.setStreet(rs.getString("street"));
-                userInfo.setPhone(rs.getString("phone"));
-            }
+            preparedStatement.setString(1, userInfo.getFirstname());
+            preparedStatement.setString(2, userInfo.getLastname());
+            preparedStatement.setString(3, userInfo.getCity());
+            preparedStatement.setString(4, userInfo.getStreet());
+            preparedStatement.setString(5, userInfo.getPhone());
+            isSuccessful = preparedStatement.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -93,7 +102,7 @@ public class UserRepository {
                 e.printStackTrace();
             }
         }
-        return userInfo;
+        return isSuccessful > 0;
     }
 
     public static void main(String[] args) {

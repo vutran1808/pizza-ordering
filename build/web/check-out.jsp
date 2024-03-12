@@ -186,7 +186,7 @@
                                 </ul>
                             </div>
                         </article>
-                        <a href="confirmation.html" type="submit" class="submit-order btn">Create order</a>
+                        <a href="confirmation.jsp" type="submit" class="submit-order btn">Create order</a>
                     </div>
                 </div>
             </div>

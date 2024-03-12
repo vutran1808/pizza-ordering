@@ -173,6 +173,23 @@
         flex-direction: column;
         min-height: 1px;
 
+        &__content.empty {
+            .order-cart__empty {
+                display: block;
+            }
+            .order-cart__notempty {
+                display: none;
+            }
+        }
+
+        &__empty {
+            display: none;
+        }
+
+        &__notempty {
+            display: block;
+        }
+
         &__wrapper {
             text-align: center;
         }
@@ -219,6 +236,7 @@
 
         &--item {
             display: flex;
+            justify-content: space-between;
             gap: 10px;
             
             & + & {

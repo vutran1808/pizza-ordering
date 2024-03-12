@@ -19,7 +19,7 @@
         <i class="fa-brands fa-apple"></i>
         Sign in with Apple
     </a>
-    <a href="#!" class="form__logins--item">
+    <a href="" class="form__logins--item">
         <i class="fa-brands fa-google"></i>
         Sign in with Google
     </a>

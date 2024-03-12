@@ -9,7 +9,7 @@ package entity;
  * @author ASUS
  */
 public class UserInfo {
-    private int user_id;
+    private User user;
     private String firstname;
     private String lastname;
     private String city;
@@ -19,8 +19,8 @@ public class UserInfo {
     public UserInfo() {
     }
 
-    public UserInfo(int user_id, String firstname, String lastname, String city, String street, String phone) {
-        this.user_id = user_id;
+    public UserInfo(User user, String firstname, String lastname, String city, String street, String phone) {
+        this.user = user;
         this.firstname = firstname;
         this.lastname = lastname;
         this.city = city;
@@ -28,12 +28,12 @@ public class UserInfo {
         this.phone = phone;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getFirstname() {

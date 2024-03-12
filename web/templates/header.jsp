@@ -21,7 +21,7 @@
                         <a href="contact.jsp" class="navbar__link">Contact</a>
                     </li>
                     <li class="navbar__item ">
-                        <a href="order-online.jsp" class="navbar__link">Order online</a>
+                        <a href="orderServlet" class="navbar__link">Order online</a>
                     </li>
                 </ul>
                 <div class="navbar__line"></div>
@@ -42,7 +42,7 @@
                                 if( session.getAttribute("isSigned") != null &&
                                     Boolean.parseBoolean(session.getAttribute("isSigned").toString()) == true) {
                             %>
-                                <li class="dropdown__item" modal="your-account.jsp">Your account</li>
+                                <a href="#!"><li class="dropdown__item" modal="your-account.jsp">Your account</li></a>
                                 <a href="logoutServlet"><li class="dropdown__item">Log out</li></a>
                             <%
                                 } else {

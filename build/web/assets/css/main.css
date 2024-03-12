@@ -825,6 +825,18 @@ textarea {
   flex-direction: column;
   min-height: 1px;
 }
+.order-cart__content.empty .order-cart__empty {
+  display: block;
+}
+.order-cart__content.empty .order-cart__notempty {
+  display: none;
+}
+.order-cart__empty {
+  display: none;
+}
+.order-cart__notempty {
+  display: block;
+}
 .order-cart__wrapper {
   text-align: center;
 }
@@ -863,6 +875,7 @@ textarea {
 }
 .order__detail--item {
   display: flex;
+  justify-content: space-between;
   gap: 10px;
 }
 .order__detail--item + .order__detail--item {

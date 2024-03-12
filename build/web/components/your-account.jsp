@@ -2,7 +2,7 @@
     <div class="form-row">
         <div class="form-group">
             <label for="firstname" class="form-label">First name</label>
-            <input type="text" name="firstname" id="firstname" value="${firstname}" class="form-input">
+            <input type="text" name="firstname" id="firstname" value="" class="form-input">
         </div>
         <div class="form-group">
             <label for="lastname" class="form-label">Last name</label>

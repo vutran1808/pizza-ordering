@@ -24,7 +24,7 @@ public class LogoutServlet extends HttpServlet {
         HttpSession sesstion = req.getSession();
         sesstion.removeAttribute("isSigned");
         sesstion.removeAttribute("username");
-        req.getRequestDispatcher("index.jsp").forward(req, resp);
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 
 }

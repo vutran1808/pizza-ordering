@@ -79,489 +79,155 @@
                             <div id="appetizers" class="food__menu--item">
                                 <h3 class="food__menu--title">Appetizers</h3>
                                 <ul class="food__list">
-                                    <!-- Item 1 -->
                                     <%
                                         List<Food> appetizers = (ArrayList<Food>)request.getAttribute("appetizers");
-                                        if(!appetizers.isEmpty()) {
-                                            for(Food food : appetizers) {
+                                        for(Food food : appetizers) {
                                     %>
                                     <li class="food__item">
-                                        <article class="food__card">
+                                        <article food-id="<%= food.getFood_id() %>" class="food__card">
                                             <!-- Image -->
                                             <div class="food__wrapper">
                                                 <img src=<%= food.getFood_img() %> alt="Loading" class="food__wrapper--img">
                                             </div>
                                             <!-- Content -->
                                             <div class="food__content">
-                                                <div class="food__content--top">
+                                                    <div class="food__content--top">
                                                     <h4 class="food__title"><%= food.getFood_name() %></h4>
-<!--                                                    <ul class="food__category--list">
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-wheat-awn"></i>
-                                                            Glutent
-                                                        </li>
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-medal"></i>
-                                                            Bestseller
-                                                        </li>
-                                                    </ul>-->
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price"><%= food.getPrice()%></span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
+                                                    </div>
+                                                    <div class="food__content--bottom">
+                                                        <span class="food__price">$<%= food.getPrice()%>.00</span>
+                                                        <button class="btn add-to-card__btn">Order</button>
+                                                    </div>
                                             </div>
                                         </article>
                                     </li>
                                     <%
-                                        }}
+                                        }
                                     %>
-<!--                                     Item 2 
-                                    <li class="food__item">
-                                        <article class="food__card">
-                                             Image 
-                                            <div class="food__wrapper">
-                                                <img src="./assets/images/apprtizers-2.webp" alt="Loading" class="food__wrapper--img">
-                                            </div>
-                                             Content 
-                                            <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Antipasti - a plate with various cold cuts and cheeses</h4>
-                                                    <ul class="food__category--list">
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-star"></i>
-                                                            New
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$15.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>
-                                     Item 3 
-                                    <li class="food__item">
-                                        <article class="food__card">
-                                             Image 
-                                            <div class="food__wrapper">
-                                                <img src="./assets/images/apprtizers-3.webp" alt="Loading" class="food__wrapper--img">
-                                            </div>
-                                             Content 
-                                            <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Caprese Salad with mozzarella, tomatoes, and basil</h4>
-                                                    <ul class="food__category--list">
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-leaf"></i>
-                                                            Vege
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$7.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>-->
                                 </ul>
                             </div>
                             <!-- Food list 2 -->
                             <div id="maincourse" class="food__menu--item">
                                 <h3 class="food__menu--title">Main courses</h3>
                                 <ul class="food__list">
-                                    <!-- Item 1 -->
+                                    <%
+                                        List<Food> maincourses = (ArrayList<Food>)request.getAttribute("maincourses");
+                                        for(Food food : maincourses) {
+                                    %>
                                     <li class="food__item">
-                                        <article class="food__card">
+                                        <article food-id="<%= food.getFood_id() %>" class="food__card">
                                             <!-- Image -->
                                             <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-1.webp" alt="Loading" class="food__wrapper--img">
+                                                <img src=<%= food.getFood_img() %> alt="Loading" class="food__wrapper--img">
                                             </div>
                                             <!-- Content -->
                                             <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Spaghetti Carbonara</h4>
-                                                    <ul class="food__category--list">
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-medal"></i>
-                                                            Bestseller
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$9.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
+                                                    <div class="food__content--top">
+                                                    <h4 class="food__title"><%= food.getFood_name() %></h4>
+                                                    </div>
+                                                    <div class="food__content--bottom">
+                                                        <span class="food__price">$<%= food.getPrice()%>.00</span>
+                                                        <button class="btn add-to-card__btn">Order</button>
+                                                    </div>
                                             </div>
                                         </article>
                                     </li>
-                                    <!-- Item 2 -->
-                                    <li class="food__item">
-                                        <article class="food__card">
-                                            <!-- Image -->
-                                            <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-2.webp" alt="Loading" class="food__wrapper--img">
-                                            </div>
-                                            <!-- Content -->
-                                            <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Risotto with wild mushrooms</h4>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$12.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>
-                                    <!-- Item 3 -->
-                                    <li class="food__item">
-                                        <article class="food__card">
-                                            <!-- Image -->
-                                            <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-3.webp" alt="Loading" class="food__wrapper--img">
-                                            </div>
-                                            <!-- Content -->
-                                            <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Gnocchi with tomato sauce and mozzarella</h4>
-                                                    <ul class="food__category--list">
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-star"></i>
-                                                            New
-                                                        </li>
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-leaf"></i>
-                                                            Vege
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$11.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>
-                                    <!-- Item 4 -->
-                                    <li class="food__item">
-                                        <article class="food__card">
-                                            <!-- Image -->
-                                            <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-4.webp" alt="Loading" class="food__wrapper--img">
-                                            </div>
-                                            <!-- Content -->
-                                            <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Tortellini with ricotta and spinach</h4>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$14.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>
+                                    <%
+                                        }
+                                    %>
                                 </ul>
                             </div>
                             <!-- Food list 3 -->
                             <div id="pizza" class="food__menu--item">
                                 <h3 class="food__menu--title">Pizza</h3>
                                 <ul class="food__list">
-                                    <!-- Item 1 -->
+                                    <%
+                                        List<Food> pizza = (ArrayList<Food>)request.getAttribute("pizza");
+                                        for(Food food : pizza) {
+                                    %>
                                     <li class="food__item">
-                                        <article class="food__card">
+                                        <article food-id="<%= food.getFood_id() %>" class="food__card">
                                             <!-- Image -->
                                             <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-1.webp" alt="Loading" class="food__wrapper--img">
+                                                <img src=<%= food.getFood_img() %> alt="Loading" class="food__wrapper--img">
                                             </div>
                                             <!-- Content -->
                                             <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Spaghetti Carbonara</h4>
-                                                    <ul class="food__category--list">
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-medal"></i>
-                                                            Bestseller
-                                                        </li>
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-pepper-hot"></i>
-                                                            Spicy
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$9.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
+                                                    <div class="food__content--top">
+                                                    <h4 class="food__title"><%= food.getFood_name() %></h4>
+                                                    </div>
+                                                    <div class="food__content--bottom">
+                                                        <span class="food__price">$<%= food.getPrice()%>.00</span>
+                                                        <button class="btn add-to-card__btn">Order</button>
+                                                    </div>
                                             </div>
                                         </article>
                                     </li>
-                                    <!-- Item 2 -->
-                                    <li class="food__item">
-                                        <article class="food__card">
-                                            <!-- Image -->
-                                            <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-2.webp" alt="Loading" class="food__wrapper--img">
-                                            </div>
-                                            <!-- Content -->
-                                            <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Risotto with wild mushrooms</h4>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$12.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>
-                                    <!-- Item 3 -->
-                                    <li class="food__item">
-                                        <article class="food__card">
-                                            <!-- Image -->
-                                            <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-3.webp" alt="Loading" class="food__wrapper--img">
-                                            </div>
-                                            <!-- Content -->
-                                            <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Gnocchi with tomato sauce and mozzarella</h4>
-                                                    <ul class="food__category--list">
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-star"></i>
-                                                            New
-                                                        </li>
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-leaf"></i>
-                                                            Vege
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$11.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>
-                                    <!-- Item 4 -->
-                                    <li class="food__item">
-                                        <article class="food__card">
-                                            <!-- Image -->
-                                            <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-4.webp" alt="Loading" class="food__wrapper--img">
-                                            </div>
-                                            <!-- Content -->
-                                            <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Tortellini with ricotta and spinach</h4>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$14.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>
+                                    <%
+                                        }
+                                    %>
                                 </ul>
                             </div>
                             <!-- Food list 4 -->
                             <div id="desserts" class="food__menu--item">
                                 <h3 class="food__menu--title">Desserts</h3>
                                 <ul class="food__list">
-                                    <!-- Item 1 -->
+                                    <%
+                                        List<Food> desserts = (ArrayList<Food>)request.getAttribute("desserts");
+                                        for(Food food : desserts) {
+                                    %>
                                     <li class="food__item">
-                                        <article class="food__card">
+                                        <article food-id="<%= food.getFood_id() %>" class="food__card">
                                             <!-- Image -->
                                             <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-1.webp" alt="Loading" class="food__wrapper--img">
+                                                <img src=<%= food.getFood_img() %> alt="Loading" class="food__wrapper--img">
                                             </div>
                                             <!-- Content -->
                                             <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Spaghetti Carbonara</h4>
-                                                    <ul class="food__category--list">
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-medal"></i>
-                                                            Bestseller
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$9.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
+                                                    <div class="food__content--top">
+                                                    <h4 class="food__title"><%= food.getFood_name() %></h4>
+                                                    </div>
+                                                    <div class="food__content--bottom">
+                                                        <span class="food__price">$<%= food.getPrice()%>.00</span>
+                                                        <button class="btn add-to-card__btn">Order</button>
+                                                    </div>
                                             </div>
                                         </article>
                                     </li>
-                                    <!-- Item 2 -->
-                                    <li class="food__item">
-                                        <article class="food__card">
-                                            <!-- Image -->
-                                            <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-2.webp" alt="Loading" class="food__wrapper--img">
-                                            </div>
-                                            <!-- Content -->
-                                            <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Risotto with wild mushrooms</h4>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$12.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>
-                                    <!-- Item 3 -->
-                                    <li class="food__item">
-                                        <article class="food__card">
-                                            <!-- Image -->
-                                            <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-3.webp" alt="Loading" class="food__wrapper--img">
-                                            </div>
-                                            <!-- Content -->
-                                            <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Gnocchi with tomato sauce and mozzarella</h4>
-                                                    <ul class="food__category--list">
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-star"></i>
-                                                            New
-                                                        </li>
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-leaf"></i>
-                                                            Vege
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$11.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>
-                                    <!-- Item 4 -->
-                                    <li class="food__item">
-                                        <article class="food__card">
-                                            <!-- Image -->
-                                            <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-4.webp" alt="Loading" class="food__wrapper--img">
-                                            </div>
-                                            <!-- Content -->
-                                            <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Tortellini with ricotta and spinach</h4>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$14.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>
+                                    <%
+                                        }
+                                    %>
                                 </ul>
                             </div>
                             <!-- Food list 5 -->
                             <div id="drinks" class="food__menu--item">
                                 <h3 class="food__menu--title">Drinks</h3>
                                 <ul class="food__list">
-                                    <!-- Item 1 -->
+                                    <%
+                                        List<Food> drinks = (ArrayList<Food>)request.getAttribute("drinks");
+                                        for(Food food : drinks) {
+                                    %>
                                     <li class="food__item">
-                                        <article class="food__card">
+                                        <article food-id="<%= food.getFood_id() %>" class="food__card">
                                             <!-- Image -->
                                             <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-1.webp" alt="Loading" class="food__wrapper--img">
+                                                <img src=<%= food.getFood_img() %> alt="Loading" class="food__wrapper--img">
                                             </div>
                                             <!-- Content -->
                                             <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Spaghetti Carbonara</h4>
-                                                    <ul class="food__category--list">
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-medal"></i>
-                                                            Bestseller
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$9.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
+                                                    <div class="food__content--top">
+                                                    <h4 class="food__title"><%= food.getFood_name() %></h4>
+                                                    </div>
+                                                    <div class="food__content--bottom">
+                                                        <span class="food__price">$<%= food.getPrice()%>.00</span>
+                                                        <button class="btn add-to-card__btn">Order</button>
+                                                    </div>
                                             </div>
                                         </article>
                                     </li>
-                                    <!-- Item 2 -->
-                                    <li class="food__item">
-                                        <article class="food__card">
-                                            <!-- Image -->
-                                            <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-2.webp" alt="Loading" class="food__wrapper--img">
-                                            </div>
-                                            <!-- Content -->
-                                            <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Risotto with wild mushrooms</h4>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$12.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>
-                                    <!-- Item 3 -->
-                                    <li class="food__item">
-                                        <article class="food__card">
-                                            <!-- Image -->
-                                            <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-3.webp" alt="Loading" class="food__wrapper--img">
-                                            </div>
-                                            <!-- Content -->
-                                            <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Gnocchi with tomato sauce and mozzarella</h4>
-                                                    <ul class="food__category--list">
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-star"></i>
-                                                            New
-                                                        </li>
-                                                        <li class="food__category--item">
-                                                            <i class="fa-solid fa-leaf"></i>
-                                                            Vege
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$11.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>
-                                    <!-- Item 4 -->
-                                    <li class="food__item">
-                                        <article class="food__card">
-                                            <!-- Image -->
-                                            <div class="food__wrapper">
-                                                <img src="./assets/images/main-courses-4.webp" alt="Loading" class="food__wrapper--img">
-                                            </div>
-                                            <!-- Content -->
-                                            <div class="food__content">
-                                                <div class="food__content--top">
-                                                    <h4 class="food__title">Tortellini with ricotta and spinach</h4>
-                                                </div>
-                                                <div class="food__content--bottom">
-                                                    <span class="food__price">$14.00</span>
-                                                    <button class="btn add-to-card__btn">Order</button>
-                                                </div>
-                                            </div>
-                                        </article>
-                                    </li>
+                                    <%
+                                        }
+                                    %>
                                 </ul>
                             </div>
                         </div>
@@ -569,31 +235,23 @@
                     <div class="menu__sidebar">
                         <article class="order-cart">
                             <span class="order-cart__title">Your order</span>
-                            <div class="order-cart__content">
-                                <div class="order-cart__wrapper">
-                                    <img src="./assets/images/cart.png" alt="Loading" class="order-cart__icon">
+                            <div class="order-cart__content empty">
+                                <div class="order-cart__empty">
+                                    <div class="order-cart__wrapper">
+                                        <img src="./assets/images/cart.png" alt="Loading" class="order-cart__icon">
+                                    </div>
+                                    <p class="order-cart__text">Cart is empty. Add menu items.</p>
                                 </div>
-                                <p class="order-cart__text">Cart is empty. Add menu items.</p>
-                                <!-- <ul class="order__detail">
-                                    <li class="order__detail--item">
-                                        <div class="order__desc">
-                                            <p class="order__food--title">1 x Bruschetta with tomatoes, garlic, and basil</p>
-                                        </div>
-                                        <div class="order__adjust">
-                                            <span class="order__detail--price">$8.00</span>
-                                            <div class="order__adjust--btn">
-                                                <button class="adjust__btn" value="-">-</button>
-                                                <button class="adjust__btn" value="+">+</button>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <div class="order__cart--row">
-                                    <span class="order__cart--title">TOTAL</span>
-                                    <span class="order__cart--price">$0.00</span>
-                                </div> -->
+                                <div class="order-cart__notempty">
+                                    <ul class="order__detail">
+                                    </ul>
+                                    <div class="order__cart--row">
+                                        <span class="order__cart--title">TOTAL</span>
+                                        <span class="order__cart--price">$0.00</span>
+                                    </div>
+                                </div>
                             </div>
-                            <a href="check-out.html" class="btn order-cart__btn">Go to checkout</a>
+                            <a href="check-out.jsp" class="btn order-cart__btn">Go to checkout</a>
                         </article>
                     </div>
                 </div>

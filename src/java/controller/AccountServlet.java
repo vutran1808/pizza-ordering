@@ -4,6 +4,7 @@
  */
 package controller;
 
+import entity.User;
 import entity.UserInfo;
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -25,20 +26,24 @@ public class AccountServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        HttpSession session = req.getSession();
-        String username = session.getAttribute("username").toString();
-        UserInfo userinfo = UserRepository.getUserByUsername(username);
-        session.setAttribute("firstname", userinfo.getFirstname());
-        session.setAttribute("lastname", userinfo.getLastname());
-        session.setAttribute("city", userinfo.getCity());
-        session.setAttribute("street", userinfo.getStreet());
-        session.setAttribute("phone", userinfo.getPhone());
-        req.getRequestDispatcher(req.getContextPath()).forward(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        HttpSession sesssion = req.getSession();
+        UserInfo userInfo = new UserInfo();
+        User user = new User();
+        user.setUser_id((Integer) sesssion.getAttribute("user_id"));
+        userInfo.setUser(user);
+        userInfo.setFirstname(req.getParameter("firstname"));
+        userInfo.setLastname(req.getParameter("lastname"));
+        userInfo.setCity(req.getParameter("city"));
+        userInfo.setStreet(req.getParameter("street"));
+        userInfo.setPhone(req.getParameter("phone"));
+        UserRepository.updateUserInfo(userInfo);
 
+        req.setAttribute("userInfo", userInfo);
+        req.getRequestDispatcher("/index.jsp").forward(req, resp);
     }
 
 }
