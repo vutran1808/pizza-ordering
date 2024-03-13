@@ -168,14 +168,14 @@ function activeMenuList() {
 window.addEventListener('template-loaded', handleShopCart)
 window.addEventListener('template-loaded', setEmptyCart);
 
-function handleShopCart(e) {
+function handleShopCart() {
     const foodItems = $$('.food__list .food__item');
     foodItems.forEach(item => {
         const addBtn = item.querySelector('.add-to-card__btn');
-        addBtn.onclick = () => {
+        addBtn.onclick = (e) => {
             const foodId = item.querySelector('.food__card').getAttribute('food-id')
             const foodTitle = item.querySelector('.food__title').innerText;
-            const foodPrice = item.querySelector('.food__price').innerText;
+            const foodPrice = item.querySelector('.food__price--value').innerText;
             const foodObj = { foodId, foodTitle, foodPrice }
             addToCart(foodObj);
         }
@@ -195,17 +195,18 @@ function addToCart(item) {
     const { foodId, foodTitle, foodPrice } = item;
     const orderDetail = $('.order-cart .order__detail');
     const liElements = orderDetail.querySelectorAll('.order__detail--item');
-    let counter = 1;
-    const liContent = `<div class="order__desc">
-                                    <p class="order__food--title"><span class="food_quantity">${counter}</span> x ${foodTitle}</p>
-                                </div>
-                                <div class="order__adjust">
-                                    <span class="order__detail--price">${foodPrice}</span>
-                                    <div class="order__adjust--btn">
-                                        <button class="adjust__btn" value="-">-</button>
-                                        <button class="adjust__btn" value="+">+</button>
-                                    </div>
-                                </div>`;
+    const liContent = ` <input type="hidden" name="food_id" value=${foodId} />
+                        <input type="hidden" class="input-food__quantity" name="food_quantity" value="1"/>
+                        <div class="order__desc">
+                            <p class="order__food--title"><span class="food_quantity">1</span> x ${foodTitle}</p>
+                        </div>
+                        <div class="order__adjust">
+                            <span class="order__detail--price">$<span class="food__price--value" price=${foodPrice} >${foodPrice}</span>.00</span>
+                            <div class="order__adjust--btn">
+                                <button class="adjust__btn" value="-">-</button>
+                                <button class="adjust__btn" value="+">+</button>
+                            </div>
+                        </div>`;
     const li = document.createElement("li");
     li.setAttribute("id", foodId);
     li.className = "order__detail--item";
@@ -213,16 +214,23 @@ function addToCart(item) {
 
     if (!liElements.length) {
         orderDetail.appendChild(li);
+        calTotal();
         return setEmptyCart();
     } 
 
     const dulicated = Array.from(liElements).filter(item => item.getAttribute('id') === foodId);
     if(!dulicated.length) {
         orderDetail.appendChild(li);
+        calTotal();
         return setEmptyCart(); 
     } else {
         const quantity = dulicated[0].querySelector('.food_quantity');
+        const price = dulicated[0].querySelector('.food__price--value');
+        const inputQuantity = dulicated[0].querySelector('.input-food__quantity');
         quantity.innerText = +quantity.innerText + 1;
+        price.innerText = foodPrice * +quantity.innerText;
+        inputQuantity.value = quantity.innerText;
+        calTotal();
     }
 }
 
@@ -235,19 +243,95 @@ function addJustQuantity() {
         const adjustBtn = item.querySelectorAll('.adjust__btn');
         adjustBtn.forEach(button => {
             button.onclick = (e) => {
+                e.preventDefault();
+                const price = item.querySelector('.food__price--value');
                 const buttonValue = e.target.value;
                 if(buttonValue === '+') {
                     const quantity = item.querySelector('.food_quantity');
+                    const inputQuantity = item.querySelector('.input-food__quantity');
                     quantity.innerText = +quantity.innerText + 1;
+                    price.innerText = +price.innerText + +price.getAttribute('price');
+                    inputQuantity.value = quantity.innerText;
+                    calTotal();
                 }
                 if(buttonValue === '-') {
                     const quantity = item.querySelector('.food_quantity');
+                    const inputQuantity = item.querySelector('.input-food__quantity');
+                    if(+quantity.innerText === 1) {
+                        item.remove();
+                        setEmptyCart();
+                    }
                     quantity.innerText = +quantity.innerText - 1;
+                    price.innerText = +price.innerText - +price.getAttribute('price');
+                    inputQuantity.value = quantity.innerText;
+                    calTotal();
                 }
             }
         })
     })
+}
 
+function calTotal() {
+    const orderDetail = $('.order-cart .order__detail');
+    const liElements = orderDetail.querySelectorAll('.order__detail--item');
+    const totalPrice = $('.order-cart .order__cart--price-value');
+    let sum = 0;
+    liElements.forEach(item => {
+        const liValue = item.querySelector('.food__price--value').innerText;
+        sum += +liValue;
+    })
+    totalPrice.innerText = sum;
+}
+
+window.addEventListener('template-loaded', submitOrder);
+
+function submitOrder() {
+    const submitOrderBtn = $('.order-cart .order-cart__btn');
+    submitOrderBtn.onclick = () => {
+        const orderDetail = $('.order-cart .order-cart__notempty').innerHTML;
+        localStorage.setItem("orderDetail", orderDetail);
+    }
+}
+
+function loadOrderCart() {
+    const checkOutOrderCart = $('.order-cart__notempty');
+    checkOutOrderCart.innerHTML = localStorage.getItem("orderDetail");
+    addJustQuantity();
+}
+
+function toggleAdminPage() {
+    const sidebarItems = $$('.sidebar__item');
+    console.log(sidebarItems);
+    const content = $('.admin__content');
+    sidebarItems.forEach(item => {
+        item.onclick = () => {
+            if(item.getAttribute('target') === 'task-list') {
+                fetch('./order-task.html')
+                .then((res) => res.text())
+                .then((html) => {
+                    content.innerHTML = html;
+                })
+            } 
+            if(item.getAttribute('target') === 'menu-list') {
+                fetch('./menu-list.html')
+                .then((res) => res.text())
+                .then((html) => {
+                    content.innerHTML = html;
+                })
+            } 
+        }
+    })
+
+}
+
+function handleChangeFoodCard() {
+    const liItems = $$('.order__list .order__list--item');
+    liItems.forEach(item => {
+        const updateBtn = item.querySelector('.update__btn');
+        const removeBtn = item.querySelector('.remove__btn');
+        updateBtn.onclick = () => {
+        }
+    })
 }
 
 

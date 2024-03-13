@@ -1,3 +1,9 @@
+<%@page import="entity.Food"%>
+<%@page import="repository.FoodRepository"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="entity.OrderDetail"%>
+<%@page import="entity.Payment"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,24 +88,25 @@
                             <div class="confirmation__order--detail">
                                 <span class="payment-cart__title">Your order</span>
                                 <ul class="order__detail--list">
-                                    <li class="order__detail--item">
-                                        <span class="order__item--title">1 x Bruschetta with tomatoes, garlic, and basil / Appetizers</span>
-                                        <p class="order__item--price">$8.00</p>
-                                    </li>
-                                    <li class="order__detail--item">
-                                        <span class="order__item--title">1 x Bruschetta with tomatoes, garlic, and basil / Appetizers</span>
-                                        <p class="order__item--price">$8.00</p>
-                                    </li>
-                                    <li class="order__detail--item">
-                                        <span class="order__item--title">1 x Bruschetta with tomatoes, garlic, and basil / Appetizers</span>
-                                        <p class="order__item--price">$8.00</p>
-                                    </li>
+                                    <%
+                                        FoodRepository foodRepository = new FoodRepository();
+                                        List<OrderDetail> orderList = (ArrayList<OrderDetail>)request.getAttribute("orderList");
+                                        if(!orderList.isEmpty()) {
+                                            for(OrderDetail or : orderList) {
+                                                Food food = foodRepository.getFoodbyId(or.getFood_id());
+                                    %>
+                                        <li class="order__detail--item">
+                                            <span class="order__item--title"><%= or.getQuantity() %> x <%= food.getFood_name() %></span>
+                                            <p class="order__item--price">$<%= or.getQuantity() * food.getPrice() %>.00</p>
+                                        </li>
+                                    <%
+                                        }}
+                                    %>
                                 </ul>
                                 <span class="order__detail--item">
                                     <span class="order__item--title">Menu items cost</span>
-                                    <p class="order__item--price">$8.00</p>
+                                    <span class="order__total--price">$<%= (Integer)request.getAttribute("amount") %>.00</span>
                                 </span>
-                                <span class="order__total--price">$8.00</span>
                             </div>
                             <div class="confirmation__user--detail">
                                 <div class="confirmation__column">
@@ -108,12 +115,12 @@
                                     <span class="order__item--title">Customer</span>
                                 </div>
                                 <div class="confirmation__column">
-                                    <span class="order__item--title">Pickup as soon as possible</span>
-                                    <span class="order__item--title">Cash</span>
+                                    <span class="order__item--title"><%= request.getAttribute("order_type") %></span>
+                                    <span class="order__item--title"><%= request.getAttribute("payment_type") %></span>
                                     <div class="customer__info">
-                                        <span class="customer__info--text">Tran Vu</span>
-                                        <span class="customer__info--text">+123 123 123</span>
-                                        <span class="customer__info--text">@gmail.com</span>
+                                        <span class="customer__info--text"><%= request.getAttribute("cus_name") %></span>
+                                        <span class="customer__info--text">+<%= request.getAttribute("cus_phone") %></span>
+                                        <span class="customer__info--text"><%= request.getAttribute("cus_email") %></span>
                                     </div>
                                 </div>
                             </div>

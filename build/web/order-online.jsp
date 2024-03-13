@@ -95,7 +95,7 @@
                                                     <h4 class="food__title"><%= food.getFood_name() %></h4>
                                                     </div>
                                                     <div class="food__content--bottom">
-                                                        <span class="food__price">$<%= food.getPrice()%>.00</span>
+                                                        <span class="food__price">$<span class="food__price--value" ><%= food.getPrice()%></span>.00</span>
                                                         <button class="btn add-to-card__btn">Order</button>
                                                     </div>
                                             </div>
@@ -126,7 +126,7 @@
                                                     <h4 class="food__title"><%= food.getFood_name() %></h4>
                                                     </div>
                                                     <div class="food__content--bottom">
-                                                        <span class="food__price">$<%= food.getPrice()%>.00</span>
+                                                        <span class="food__price">$<span class="food__price--value" ><%= food.getPrice()%></span>.00</span>
                                                         <button class="btn add-to-card__btn">Order</button>
                                                     </div>
                                             </div>
@@ -157,7 +157,7 @@
                                                     <h4 class="food__title"><%= food.getFood_name() %></h4>
                                                     </div>
                                                     <div class="food__content--bottom">
-                                                        <span class="food__price">$<%= food.getPrice()%>.00</span>
+                                                        <span class="food__price">$<span class="food__price--value" ><%= food.getPrice()%></span>.00</span>
                                                         <button class="btn add-to-card__btn">Order</button>
                                                     </div>
                                             </div>
@@ -188,7 +188,7 @@
                                                     <h4 class="food__title"><%= food.getFood_name() %></h4>
                                                     </div>
                                                     <div class="food__content--bottom">
-                                                        <span class="food__price">$<%= food.getPrice()%>.00</span>
+                                                        <span class="food__price">$<span class="food__price--value" ><%= food.getPrice()%></span>.00</span>
                                                         <button class="btn add-to-card__btn">Order</button>
                                                     </div>
                                             </div>
@@ -219,7 +219,7 @@
                                                     <h4 class="food__title"><%= food.getFood_name() %></h4>
                                                     </div>
                                                     <div class="food__content--bottom">
-                                                        <span class="food__price">$<%= food.getPrice()%>.00</span>
+                                                        <span class="food__price">$<span class="food__price--value" ><%= food.getPrice()%></span>.00</span>
                                                         <button class="btn add-to-card__btn">Order</button>
                                                     </div>
                                             </div>
@@ -247,7 +247,7 @@
                                     </ul>
                                     <div class="order__cart--row">
                                         <span class="order__cart--title">TOTAL</span>
-                                        <span class="order__cart--price">$0.00</span>
+                                        <span class="order__cart--price">$<span class="order__cart--price-value" >0</span>.00</span>
                                     </div>
                                 </div>
                             </div>

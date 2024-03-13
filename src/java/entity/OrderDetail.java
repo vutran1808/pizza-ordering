@@ -9,27 +9,17 @@ package entity;
  * @author ASUS
  */
 public class OrderDetail {
-    private int order_id;
     private int food_id;
     private int quantity;
 
     public OrderDetail() {
     }
 
-    public OrderDetail(int order_id, int food_id, int quantity) {
-        this.order_id = order_id;
+    public OrderDetail(int food_id, int quantity) {
         this.food_id = food_id;
         this.quantity = quantity;
     }
     
-    public int getOrder_id() {
-        return order_id;
-    }
-
-    public void setOrder_id(int order_id) {
-        this.order_id = order_id;
-    }
-
     public int getFood_id() {
         return food_id;
     }

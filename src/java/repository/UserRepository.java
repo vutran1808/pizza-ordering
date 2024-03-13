@@ -29,7 +29,6 @@ public class UserRepository {
             preparedStatement.setString(2, password);
             ResultSet rsSet = preparedStatement.executeQuery();
             while (rsSet.next()) {
-
                 user.setUser_id(rsSet.getInt("user_id"));
                 user.setUsername(rsSet.getString("username"));
                 user.setPassword(rsSet.getString("password"));
@@ -52,6 +51,33 @@ public class UserRepository {
             }
         }
         return userInfo;
+    }
+    
+    public User getUserById(int id) {
+        Connection connection = SQLConnection.getConnection();
+        User user = new User();
+        try {
+            String query = "select * from users where user_id = ? ";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            ResultSet rsSet = preparedStatement.executeQuery();
+            while (rsSet.next()) {
+                user.setUser_id(rsSet.getInt("user_id"));
+                user.setUsername(rsSet.getString("username"));
+                user.setPassword(rsSet.getString("password"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return user;
     }
 
     public boolean createUser(String username, String password) {

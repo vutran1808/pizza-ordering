@@ -182,6 +182,11 @@
             }
         }
 
+        &__content.empty + &__btn {
+            opacity: .6;
+            pointer-events: none;
+        }
+
         &__empty {
             display: none;
         }

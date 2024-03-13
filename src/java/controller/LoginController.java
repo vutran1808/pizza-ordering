@@ -39,7 +39,7 @@ public class LoginController extends HttpServlet {
             req.getRequestDispatcher("index.jsp").forward(req, resp);
         } else {
             session.setAttribute("isSigned", false);
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher(req.getContextPath());
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
             requestDispatcher.include(req, resp);
         }
 

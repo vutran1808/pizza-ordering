@@ -831,6 +831,10 @@ textarea {
 .order-cart__content.empty .order-cart__notempty {
   display: none;
 }
+.order-cart__content.empty + .order-cart__btn {
+  opacity: 0.6;
+  pointer-events: none;
+}
 .order-cart__empty {
   display: none;
 }
@@ -983,6 +987,7 @@ textarea {
   display: inline-block;
 }
 .check-out .payment-cart__type {
+  position: relative;
   border: 2px solid #f2f4f8;
   border-radius: 5px;
   display: flex;
@@ -1101,6 +1106,96 @@ textarea {
 }
 .check-out .payment-cart .order-successful__btn {
   background-color: #e62d2a;
+}
+
+.admin {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #e9ebfa;
+}
+.admin__inner {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  background-color: #fff;
+  border-radius: 50px;
+  padding: 30px;
+  display: flex;
+  align-items: flex-start;
+}
+.admin__sidebar {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 10%;
+  background-color: aquamarine;
+  border-top-left-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+.admin .sidebar__list {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.admin .sidebar__item {
+  background-color: #fff;
+  padding: 10px;
+  text-align: center;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.admin .sidebar__item.active, .admin .sidebar__item:hover {
+  background-color: #3858cd;
+  color: #fff;
+}
+.admin__content {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(10% 14%, 10% 0, 100% 0, 100% 100%, 0 100%, 0 14%);
+  border-radius: 30px;
+  background-color: #f7f7fa;
+}
+.admin .content__title {
+  text-align: center;
+  font-size: 4rem;
+}
+.admin .task__container {
+  margin: 0 auto;
+  width: 75%;
+  height: 90%;
+  background-color: #fff;
+}
+.admin .order__list {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.admin .order__list--item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border-bottom: 1px solid #000;
+}
+.admin .food__card {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+}
+.admin .food__card--img {
+  max-width: 80px;
+}
+.admin .update__btn {
+  margin-left: auto;
 }
 
 /*# sourceMappingURL=main.css.map */

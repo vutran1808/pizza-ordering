@@ -4,32 +4,32 @@
  */
 package entity;
 
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
  * @author ASUS
  */
 public class Order {
-    private int order_id;
     private int user_id;
-    private Date create_date;
+    private List<OrderDetail> orderList = new ArrayList<>();
+    private String order_type;
 
     public Order() {
     }
 
-    public Order(int order_id, int user_id, Date create_date) {
-        this.order_id = order_id;
+    public Order(int user_id, String order_type) {
         this.user_id = user_id;
-        this.create_date = create_date;
+        this.order_type = order_type;
     }
 
-    public int getOrder_id() {
-        return order_id;
+    public String getOrder_type() {
+        return order_type;
     }
 
-    public void setOrder_id(int order_id) {
-        this.order_id = order_id;
+    public void setOrder_type(String order_type) {
+        this.order_type = order_type;
     }
 
     public int getUser_id() {
@@ -40,17 +40,14 @@ public class Order {
         this.user_id = user_id;
     }
 
-    public Date getCreate_date() {
-        return create_date;
+    public List<OrderDetail> getOrderList() {
+        return orderList;
     }
 
-    public void setCreate_date(Date create_date) {
-        this.create_date = create_date;
+    public void setOrderList(List<OrderDetail> orderList) {
+        this.orderList = orderList;
     }
 
-    @Override
-    public String toString() {
-        return "Order{" + "order_id=" + order_id + ", user_id=" + user_id + ", create_date=" + create_date + '}';
-    }
+    
     
 }

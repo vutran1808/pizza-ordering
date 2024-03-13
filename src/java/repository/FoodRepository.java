@@ -49,4 +49,33 @@ public class FoodRepository {
         }
         return foodList;
     }
+
+    public Food getFoodbyId(int id) {
+        Connection connection = SQLConnection.getConnection();
+        Food food = new Food();
+
+        try {
+            String query = "select * from food where food_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, id);
+            ResultSet rsSet = preparedStatement.executeQuery();
+            while (rsSet.next()) {
+                food.setFood_id(rsSet.getInt("food_id"));
+                food.setFood_name(rsSet.getString("food_name"));
+                food.setFood_img(rsSet.getString("food_img"));
+                food.setPrice(rsSet.getInt("price"));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (connection != null) {
+                    connection.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return food;
+    }
 }

@@ -65,6 +65,7 @@
         </div>
         <div class="check-out__content">
             <div class="container">
+            <form action="checkOutServlet" method="POST">
                 <div class="check-out__content--inner">
                     <div class="check-out__left">
                         <article class="payment-cart">
@@ -75,7 +76,7 @@
                                     <label for="card">
                                         <div class="payment-cart__type">
                                             <input hidden checked class="payment-cart__checkbox" type="radio"
-                                                name="payment__type" id="card">
+                                                name="payment__type" value="cart" id="card">
                                             <span class="payment-cart__text">Cart (upon receipt)</span>
                                             <img src="./assets/images/payment-cart-card.png" alt="Card"
                                                 class="payment-cart__type--icon">
@@ -84,7 +85,7 @@
                                     <label for="cash">
                                         <div class="payment-cart__type">
                                             <input hidden class="payment-cart__checkbox" type="radio"
-                                                name="payment__type" id="cash">
+                                                name="payment__type" value="cash" id="cash">
                                             <span class="payment-cart__text">Cash</span>
                                             <img src="./assets/images/payment-cart-cash.png" alt="Card"
                                                 class="payment-cart__type--icon">
@@ -98,32 +99,15 @@
                                         <label for="delivery">
                                             <div class="payment-cart__type">
                                                 <input hidden checked class="payment-cart__checkbox" type="radio"
-                                                    name="order__type" id="delivery">
+                                                    name="order__type" value="delivery" id="delivery">
                                                 <span class="payment-cart__text">Delivery</span>
                                             </div>
                                         </label>
                                         <label for="pickup">
                                             <div class="payment-cart__type">
                                                 <input hidden class="payment-cart__checkbox" type="radio"
-                                                    name="order__type" id="pickup">
+                                                    name="order__type" value="pickup" id="pickup">
                                                 <span class="payment-cart__text">Pick up</span>
-                                            </div>
-                                        </label>
-                                    </div>
-                                    <div class="payment-cart__column">
-                                        <span class="payment-cart__title">When</span>
-                                        <label for="asap">
-                                            <div class="payment-cart__type">
-                                                <input hidden checked class="payment-cart__checkbox" type="radio"
-                                                    name="when" id="asap">
-                                                <span class="payment-cart__text">As soon as possible</span>
-                                            </div>
-                                        </label>
-                                        <label for="time">
-                                            <div class="payment-cart__type">
-                                                <input hidden class="payment-cart__checkbox" type="radio" name="when"
-                                                    id="time">
-                                                <span class="payment-cart__text">Specific time</span>
                                             </div>
                                         </label>
                                     </div>
@@ -138,60 +122,52 @@
                                     <div class="payment-cart__column">
                                         <div class="form-group">
                                             <label for="firstname" class="form-label small">First name *</label>
-                                            <input type="text" name="firstname" id="firstname"
+                                            <input type="text" name="firstname" id="firstname" required
                                                 class="form-input no-rounded">
                                         </div>
                                         <div class="form-group">
                                             <label for="phone" class="form-label small">Phone *</label>
-                                            <input type="text" name="phone" id="phone" class="form-input no-rounded">
+                                            <input type="text" name="phone" id="phone" required class="form-input no-rounded">
                                         </div>
                                     </div>
                                     <div class="payment-cart__column">
                                         <div class="form-group">
                                             <label for="lastname" class="form-label small">Last name *</label>
-                                            <input type="text" name="lastname" id="lastname"
+                                            <input type="text" required name="lastname" id="lastname"
                                                 class="form-input no-rounded">
                                         </div>
                                         <div class="form-group">
                                             <label for="email" class="form-label small">Email *</label>
-                                            <input type="email" name="email" id="email" class="form-input no-rounded">
+                                            <input type="email" required name="email" id="email" class="form-input no-rounded">
                                         </div>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="address" class="form-label small">Address (leave this field blank if you pickup)</label>
+                                    <input type="text" name="address" id="address" class="form-input no-rounded">
                                 </div>
                             </div>
                         </article>
                     </div>
                     <div class="check-out__right">
-                        <article class="payment-cart">
-                            <div class="payment-cart__inner">
-                                <span class="payment-cart__title">Your order</span>
-                                    <ul class="order__detail">
-                                        <li class="order__detail--item">
-                                            <div class="order__desc">
-                                                <p class="order__food--title">1 x Bruschetta with tomatoes, garlic, and basil</p>
-                                            </div>
-                                            <div class="order__adjust">
-                                                <span class="order__detail--price">$8.00</span>
-                                                <div class="order__adjust--btn">
-                                                    <button class="adjust__btn" value="-">-</button>
-                                                    <button class="adjust__btn" value="+">+</button>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                    <div class="payment-cart__row">
-                                        <span class="payment-cart--title">TOTAL</span>
-                                        <span class="payment-cart--price">$0.00</span>
-                                    </div>
-                                </ul>
+                        <article class="order-cart">
+                            <span class="order-cart__title">Your order</span>
+                            <div class="order-cart__content">
+                                <div class="order-cart__notempty">
+                                    
+                                </div>
                             </div>
+                            <button type="submit" class="btn order-cart__btn">Create order</button>
                         </article>
-                        <a href="confirmation.jsp" type="submit" class="submit-order btn">Create order</a>
                     </div>
                 </div>
-            </div>
+            </form>
+        </div>
         </div>
     </main>
+    <script>
+        loadOrderCart();
+    </script>
 </body>
 
 </html>
