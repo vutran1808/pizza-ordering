@@ -4,8 +4,6 @@
  */
 package controller;
 
-import entity.User;
-import entity.UserInfo;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,19 +29,20 @@ public class AccountServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession sesssion = req.getSession();
-        UserInfo userInfo = new UserInfo();
-        User user = new User();
-        user.setUser_id((Integer) sesssion.getAttribute("user_id"));
-        userInfo.setUser(user);
-        userInfo.setFirstname(req.getParameter("firstname"));
-        userInfo.setLastname(req.getParameter("lastname"));
-        userInfo.setCity(req.getParameter("city"));
-        userInfo.setStreet(req.getParameter("street"));
-        userInfo.setPhone(req.getParameter("phone"));
-        UserRepository.updateUserInfo(userInfo);
+        int user_id = (Integer) sesssion.getAttribute("user_id");
+        String firstname = req.getParameter("firstname");
+        String lastname = req.getParameter("lastname");
+        String city = req.getParameter("city");
+        String street = req.getParameter("street");
+        String phone = req.getParameter("phone");
+        UserRepository.updateUserInfo(user_id, firstname, lastname, city, street, phone);
 
-        req.setAttribute("userInfo", userInfo);
-        req.getRequestDispatcher("/index.jsp").forward(req, resp);
+//        req.setAttribute("firstname", firstname);
+//        req.setAttribute("lastname", lastname);
+//        req.setAttribute("city", city);
+//        req.setAttribute("street", street);
+//        req.setAttribute("phone", phone);
+        req.getRequestDispatcher("index.jsp").forward(req, resp);
     }
 
 }

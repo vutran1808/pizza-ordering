@@ -306,14 +306,21 @@ function toggleAdminPage() {
     sidebarItems.forEach(item => {
         item.onclick = () => {
             if(item.getAttribute('target') === 'task-list') {
-                fetch('./order-task.html')
+                fetch('./order-task.jsp')
                 .then((res) => res.text())
                 .then((html) => {
                     content.innerHTML = html;
                 })
             } 
             if(item.getAttribute('target') === 'menu-list') {
-                fetch('./menu-list.html')
+                fetch('./menu-list.jsp')
+                .then((res) => res.text())
+                .then((html) => {
+                    content.innerHTML = html;
+                })
+            } 
+            if(item.getAttribute('target') === 'user-list') {
+                fetch('./user.jsp')
                 .then((res) => res.text())
                 .then((html) => {
                     content.innerHTML = html;

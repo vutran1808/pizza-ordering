@@ -1163,6 +1163,7 @@ textarea {
   clip-path: polygon(10% 14%, 10% 0, 100% 0, 100% 100%, 0 100%, 0 14%);
   border-radius: 30px;
   background-color: #f7f7fa;
+  overflow-y: scroll;
 }
 .admin .content__title {
   text-align: center;

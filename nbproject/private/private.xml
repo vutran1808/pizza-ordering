@@ -3,9 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/assignment-prj/pizza-ordering/web/check-out.jsp</file>
-            <file>file:/D:/assignment-prj/pizza-ordering/src/java/controller/CheckOutServlet.java</file>
-            <file>file:/D:/assignment-prj/pizza-ordering/web/confirmation.jsp</file>
+            <file>file:/D:/assignment-prj/pizza-ordering/web/WEB-INF/web.xml</file>
             <file>file:/D:/assignment-prj/pizza-ordering/src/java/repository/FoodRepository.java</file>
         </group>
     </open-files>

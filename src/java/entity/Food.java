@@ -27,6 +27,13 @@ public class Food {
         this.menu_id = menu_id;
     }
     
+    public Food(String food_name, String food_img, int price, int menu_id) {
+        this.food_name = food_name;
+        this.food_img = food_img;
+        this.price = price;
+        this.menu_id = menu_id;
+    }
+    
     public int getFood_id() {
         return food_id;
     }
